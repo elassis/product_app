@@ -12,18 +12,19 @@ p{
   text-transform: capitalize;
 }
 
-main.container{
+
+main.container-fluid{
+  width: 100%;
   margin: 0;
   padding: 0 12px;
   display: flex;
-  gap:40px;
+  gap:20px;
 }
 
 .product-container {
-  width: 25%;
+  width: 200px;
   height: 200px;
   padding: 10px 1px;
-  border:1px solid;
   margin-top: 20px;
   box-sizing: border-box;
 }
@@ -37,4 +38,32 @@ main.container{
   justify-content: center;
   text-align: center;
 
+}
+
+#productType{
+  width:150px;
+}
+
+.notification{
+  width: 399px;
+  margin: 20px auto;
+  background: #e6b2b2;
+  text-align: center;
+  color: hsl(11deg 80% 45%);
+  padding: 10px;
+}
+
+.hidden{
+  display: none;
+}
+
+.product-input{
+  margin-top: 10px;
+}
+form{
+  width: 40vw;
+  margin: 20px auto;
+}
+.description{
+  font-weight:600;
 }

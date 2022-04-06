@@ -1,6 +1,6 @@
 <?php  
   include_once './config/helper_functions.php';
- 
+  
   $url = 'http://localhost/products_app/api/index.php';
   $response = file_get_contents($url);
   $json_response = json_decode($response, true);
@@ -25,17 +25,17 @@
   <nav class="navbar navbar-expand bg-light">
     <div class="container-fluid">
       <div class="text">
-        <p>product list</p>
+        <p class="h2">product list</p>
       </div>
       <div class="buttons">
-        <button>add</button>
-        <button class="delete-btn">mass delete</button>
+        <a href="./add-product.php" class="btn btn-primary">ADD</a>
+        <button class="btn btn-danger delete-btn">MASS DELETE</button>
       </div>
   </div>
   </nav>
-  <main class="container row">
+  <main class="container-fluid row">
     <?php foreach($array_instances as $instance):?>
-      <div class="product-container">
+      <div class="product-container rounded border border-2">
         <div class="row chk">
           <input type="checkbox" class="delete-checkbox" name="" id="<?php echo $instance->getId(); ?>">
         </div>

@@ -1,11 +1,11 @@
 <?php
   include '../config/database.php';
+  include 'productsModel.php';
 
   class Model extends Database {
     
-    public function selectAll(){
-      $db = new Database();
-      $conn = $db->connect();
+    public function index(){      
+      $conn = $this->connect();
       $stmt = $conn->prepare("SELECT * FROM products p 
                               LEFT JOIN forniture f ON f.forniture_id = p.id
                               LEFT JOIN book b ON b.book_id = p.id
@@ -16,10 +16,25 @@
     }
 
     public function delete($element_id){
-      $db = new Database();
-      $conn = $db->connect();
+      $conn = $this->connect();
       $stmt = $conn->prepare("DELETE FROM products WHERE id = {$element_id}");
       $stmt->execute();      
+    }
+
+    public function create($product){
+      if($product['type'] == 'dvd'){
+        $dvd = new DvdModel($product['sku'], $product['name'], $product['price'], $product['size']);
+        $dvd->save();
+      }
+      if($product['type'] == 'book'){
+        $book = new BookModel($product['sku'], $product['name'], $product['price'], $product['weight']);
+        $book->save();
+      } 
+      if($product['type'] == 'forniture'){
+        $forniture = new FornitureModel($product['sku'], $product['name'], $product['price'], $product['height'],
+        $product['width'],$product['length']);
+        $forniture->save();
+      }    
     }
   }
 ?>

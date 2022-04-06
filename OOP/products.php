@@ -1,4 +1,5 @@
 <?php
+  namespace OOP;
   
   abstract class Product {
     public $id;
@@ -79,7 +80,6 @@
     
      public function setLength($length){}
      public function getLength(){}
-
   }
 
   class Book extends Product {
@@ -98,18 +98,19 @@
     public function getWeight(){
       return $this->weight;
     }
-
-     public function setSize($size){}
-     public function getSize(){}
+     
+    public function setSize($size){}
+    public function getSize(){}
     
-     public function setHeight($height){}
-     public function getHeight(){}
+    public function setHeight($height){}
+    public function getHeight(){}
     
-     public function setWidth($width){}
-     public function getWidth(){}
+    public function setWidth($width){}
+    public function getWidth(){}
     
-     public function setLength($length){}
-     public function getLength(){}
+    public function setLength($length){}
+    public function getLength(){}
+     
   }
  
   class Forniture extends Product {

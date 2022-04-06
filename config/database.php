@@ -14,5 +14,12 @@
         echo $e->getMessage();
       }
     } 
+    public function getLastId(){
+      $conn = $this->connect();
+      $stmt = $conn->prepare("SELECT MAX(id) FROM products");
+      $stmt->execute();
+      $id = $stmt->fetch();
+      return $id;
+    }
   }
 ?>
