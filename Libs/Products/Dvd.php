@@ -16,25 +16,7 @@
     
     public function getSize(){
       return $this->size;
-    }
-
-    public function save(){
-     
-      $conn = $db->connect();
-      try {
-        $stmt = $conn->prepare("INSERT INTO products (id, sku, name, price) VALUES ('', :sku, :name, :price)");
-        $stmt->execute(array(':sku'=>$this->getSku(),':name'=>$this->getName(),':price'=>$this->getPrice()));
-        
-        $lastId = $db->getLastId();
-        $stmt2 = $conn->prepare("INSERT INTO dvd (dvd_id, size) VALUES (:id, :size)");
-        $stmt2->execute(array(':id'=>$lastId[0],':size'=>$this->getSize()));
-        echo 'OK';
-        exit;
-      } catch (PDOException $e) {
-        throw $e;
-      }
-    }
-    
+    }    
      public function setWeight($weight){}
      public function getWeight(){}
     

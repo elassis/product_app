@@ -55,7 +55,5 @@
     abstract public function setLength($length);
     abstract public function getLength();
 
-    abstract public function save();
-
   }
 ?>
