@@ -1,10 +1,9 @@
 <?php
-//namespace ProductsModel;
 include '../OOP/products.php';
 include_once '../config/database.php';
 
 
-class DvdModel extends OOP\DVD {
+class ModelDvd extends OOP\DVD {
   public function __construct($sku, $name, $price, $size){
     $this->sku = $sku;
     $this->name = $name;
@@ -31,7 +30,7 @@ class DvdModel extends OOP\DVD {
   }
 }
 
-class BookModel extends OOP\Book {
+class ModelBook extends OOP\Book {
   public function __construct($sku, $name, $price, $weight){
     $this->sku = $sku;
     $this->name = $name;
@@ -58,7 +57,7 @@ class BookModel extends OOP\Book {
   }
 }
 
-class FornitureModel extends OOP\Forniture {
+class ModelForniture extends OOP\Forniture {
   public function __construct($sku, $name, $price, $height, $width, $length){
     $this->sku = $sku;
     $this->name = $name;

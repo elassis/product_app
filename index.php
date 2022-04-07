@@ -28,7 +28,7 @@
         <p class="h2">product list</p>
       </div>
       <div class="buttons">
-        <a href="./add-product.php" class="btn btn-primary">ADD</a>
+        <a href="./addproduct.php" class="btn btn-primary">ADD</a>
         <button class="btn btn-danger delete-btn">MASS DELETE</button>
       </div>
   </div>
@@ -60,6 +60,6 @@
   </main>
   <footer></footer>
 </body>
-<script type="module" src="js/handlers.js"></script>
+<script type="module" src="js/homeHandlers.js"></script>
 </script>
 </html>

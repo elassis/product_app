@@ -23,15 +23,15 @@
 
     public function create($product){
       if($product['type'] == 'dvd'){
-        $dvd = new DvdModel($product['sku'], $product['name'], $product['price'], $product['size']);
+        $dvd = new ModelDvd($product['sku'], $product['name'], $product['price'], $product['size']);
         $dvd->save();
       }
       if($product['type'] == 'book'){
-        $book = new BookModel($product['sku'], $product['name'], $product['price'], $product['weight']);
+        $book = new ModelBook($product['sku'], $product['name'], $product['price'], $product['weight']);
         $book->save();
       } 
       if($product['type'] == 'forniture'){
-        $forniture = new FornitureModel($product['sku'], $product['name'], $product['price'], $product['height'],
+        $forniture = new ModelForniture($product['sku'], $product['name'], $product['price'], $product['height'],
         $product['width'],$product['length']);
         $forniture->save();
       }    

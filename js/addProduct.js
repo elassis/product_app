@@ -17,7 +17,7 @@ class addProductFunctions {
       let response = true;
       inputs.forEach((e)=>{
         if(e.value === ""){
-          displayMssg('please submit required data.');
+          displayMssg('Please submit required data.');
           response = false;
         }
       });
@@ -27,7 +27,7 @@ class addProductFunctions {
     function verifyName(){
       let nameInput = document.querySelector('#name').value;
       if(nameInput.match(/[0-9]/g)){ 
-        displayMssg('name should only have text.');
+        displayMssg('Name should only have text.');
         return false;
       }
       return true;
@@ -36,7 +36,7 @@ class addProductFunctions {
     function verifyProductype(){
       const productType = document.querySelector('#productType').value; 
       if(productType === 'ts'){
-        displayMssg('please, select product type.');
+        displayMssg('Please, select product type.');
         return false;
       }
       return true;
