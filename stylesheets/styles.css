@@ -28,6 +28,9 @@ main.container-fluid{
   margin-top: 20px;
   box-sizing: border-box;
 }
+.sku{
+  text-transform: uppercase;
+}
 .chk{
   width:70px;
   padding: 10px 0;

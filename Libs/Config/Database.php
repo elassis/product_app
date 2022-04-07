@@ -1,4 +1,5 @@
-<?php
+<?php 
+  namespace Libs\Config;
 
   class Database {
     private $server = 'localhost';
@@ -8,7 +9,7 @@
 
     public function connect(){
       try {
-        $pdo = new PDO("mysql:host={$this->server};dbname={$this->database}","{$this->user}","{$this->pass}");
+        $pdo = new \PDO("mysql:host={$this->server};dbname={$this->database}","{$this->user}","{$this->pass}");
         return $pdo;
       } catch (Exception $e) {
         echo $e->getMessage();

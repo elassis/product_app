@@ -1,13 +1,15 @@
 <?php  
-  include_once './config/helper_functions.php';
+  include_once 'helper_functions.php';
   
   $url = 'http://localhost/products_app/api/index.php';
   $response = file_get_contents($url);
   $json_response = json_decode($response, true);
-  $array_instances = array();
-
-  foreach($json_response['products'] as $product){
-    array_push($array_instances, createInstance($product));    
+  $length = count($json_response['products']);
+  if($length > 0){
+    $array_instances = array();
+    foreach($json_response['products'] as $product){
+      array_push($array_instances, createInstance($product));    
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -29,34 +31,36 @@
       </div>
       <div class="buttons">
         <a href="./addproduct.php" class="btn btn-primary">ADD</a>
-        <button class="btn btn-danger delete-btn">MASS DELETE</button>
+        <button class="btn btn-danger delete-btn" id="delete-product-btn">MASS DELETE</button>
       </div>
   </div>
   </nav>
   <main class="container-fluid row">
-    <?php foreach($array_instances as $instance):?>
-      <div class="product-container rounded border border-2">
-        <div class="row chk">
-          <input type="checkbox" class="delete-checkbox" name="" id="<?php echo $instance->getId(); ?>">
-        </div>
-        <div class="row data">
-          <p class="sku"><?php echo $instance->getSku(); ?></p>
-          <p class="name"><?php echo $instance->getName(); ?></p>
-          <p class="price"><?php echo $instance->getPrice(); ?> $</p>
-          <?php if($instance->getSize()):?>
-            <p class="size">size: <?php echo $instance->getSize(); ?> MB</p>
+    <?php if(isset($array_instances)):?>
+      <?php foreach($array_instances as $instance):?>
+        <div class="product-container rounded border border-2">
+          <div class="row chk">
+            <input type="checkbox" class="delete-checkbox" id="<?php echo $instance->getId(); ?>">
+          </div>
+          <div class="row data">
+            <p class="sku"><?php echo $instance->getSku(); ?></p>
+            <p class="name"><?php echo $instance->getName(); ?></p>
+            <p class="price"><?php echo $instance->getPrice(); ?> $</p>
+            <?php if($instance->getSize()):?>
+              <p class="size">size: <?php echo $instance->getSize(); ?> MB</p>
+              <?php endif;?>
+            <?php if($instance->getWeight()):?>
+              <p class="weight">weight: <?php echo $instance->getWeight(); ?> KG</p>
             <?php endif;?>
-          <?php if($instance->getWeight()):?>
-            <p class="weight">weight: <?php echo $instance->getWeight(); ?> KG</p>
-          <?php endif;?>
-          <?php if($instance->getHeight()):?>
-            <p class="dimensions">Dimensions:
-              <?php echo "{$instance->getHeight()}x{$instance->getWidth()}x{$instance->getLength()}" ?>
-            </p>
-            <?php endif;?>
+            <?php if($instance->getHeight()):?>
+              <p class="dimensions">Dimensions:
+                <?php echo "{$instance->getHeight()}x{$instance->getWidth()}x{$instance->getLength()}" ?>
+              </p>
+              <?php endif;?>
+          </div>
         </div>
-      </div>
-      <?php endforeach;?>    
+        <?php endforeach;?>
+      <?php endif;?>     
   </main>
   <footer></footer>
 </body>

@@ -1,0 +1,11 @@
+{
+    "name": "user/products_app",
+    "type": "n",
+    "license": "n",
+    "autoload": {
+        "psr-4": {
+            "Libs\\": "Libs/"
+        }
+    },
+    "require": {}
+}

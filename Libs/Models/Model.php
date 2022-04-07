@@ -1,17 +1,19 @@
 <?php
-  include '../config/database.php';
-  include 'productsModel.php';
-
-  class Model extends Database {
-    
-    public function index(){      
+  namespace Libs\Models;
+  require_once '../vendor/autoload.php';
+  
+  use Libs\Config\Database;
+  use Libs\Models;
+  
+  class Model extends Database{
+    public function index(){        
       $conn = $this->connect();
       $stmt = $conn->prepare("SELECT * FROM products p 
                               LEFT JOIN forniture f ON f.forniture_id = p.id
                               LEFT JOIN book b ON b.book_id = p.id
                               LEFT JOIN dvd d ON d.dvd_id = p.id ORDER BY p.id");
       $stmt->execute();
-      $elemts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $elemts = $stmt->fetchAll(\PDO::FETCH_ASSOC);
       return $elemts;
     }
 
@@ -23,15 +25,15 @@
 
     public function create($product){
       if($product['type'] == 'dvd'){
-        $dvd = new ModelDvd($product['sku'], $product['name'], $product['price'], $product['size']);
+        $dvd = new Models\DVD($product['sku'], $product['name'], $product['price'], $product['size']);
         $dvd->save();
       }
       if($product['type'] == 'book'){
-        $book = new ModelBook($product['sku'], $product['name'], $product['price'], $product['weight']);
+        $book = new Models\Book($product['sku'], $product['name'], $product['price'], $product['weight']);
         $book->save();
       } 
       if($product['type'] == 'forniture'){
-        $forniture = new ModelForniture($product['sku'], $product['name'], $product['price'], $product['height'],
+        $forniture = new Models\Forniture($product['sku'], $product['name'], $product['price'], $product['height'],
         $product['width'],$product['length']);
         $forniture->save();
       }    
