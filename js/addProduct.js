@@ -23,15 +23,7 @@ class addProductFunctions {
       });
       return response;
     }
-    //verify name correct format
-    function verifyName(){
-      let nameInput = document.querySelector('#name').value;
-      if(nameInput.match(/[0-9]/g)){ 
-        displayMssg('Name should only have text.');
-        return false;
-      }
-      return true;
-    }
+    
     //verify that product type is selected
     function verifyProductype(){
       const productType = document.querySelector('#productType').value; 
@@ -41,7 +33,7 @@ class addProductFunctions {
       }
       return true;
     }
-    if(verifyName() && verifyProductype() && verifyInputs()) this.save(); 
+    if(verifyProductype() && verifyInputs()) this.save(); 
   }
 
   showTemplate(type){
@@ -67,7 +59,7 @@ class addProductFunctions {
       return this.template;
     }
 
-    if (type === 'forniture'){
+    if (type === 'furniture'){
       const fTemplate = `
         <div class="row product-input">
           <div class="col">
@@ -111,7 +103,7 @@ class addProductFunctions {
       }
       this.sendToApi(dvdObj);
     }
-    if(type === 'forniture'){
+    if(type === 'furniture'){
       const forObj = {
         sku: document.querySelector('#sku').value,
         name: document.querySelector('#name').value,

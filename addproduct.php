@@ -23,7 +23,7 @@
   </nav>
   <main>
     <div class="notification hidden"></div>
-    <form action="" method="post" id="product-form">
+    <form action="" method="post" id="product_form">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">SKU*</label>
         <input type="text" class="form-control" id="sku">
@@ -40,7 +40,7 @@
         <option value="ts" selected>Type Switcher</option>
         <option value="book">Book</option>
         <option value="dvd">DVD</option>
-        <option value="forniture">Forniture</option>
+        <option value="furniture">furniture</option>
       </select>
       <div id="template-container"></div>  
     </form>

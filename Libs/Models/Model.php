@@ -9,7 +9,7 @@
     public function index(){        
       $conn = $this->connect();
       $stmt = $conn->prepare("SELECT * FROM products p 
-                              LEFT JOIN forniture f ON f.forniture_id = p.id
+                              LEFT JOIN furniture f ON f.furniture_id = p.id
                               LEFT JOIN book b ON b.book_id = p.id
                               LEFT JOIN dvd d ON d.dvd_id = p.id ORDER BY p.id");
       $stmt->execute();
@@ -32,10 +32,10 @@
         $book = new Models\Book($product['sku'], $product['name'], $product['price'], $product['weight']);
         $book->save();
       } 
-      if($product['type'] == 'forniture'){
-        $forniture = new Models\Forniture($product['sku'], $product['name'], $product['price'], $product['height'],
+      if($product['type'] == 'furniture'){
+        $furniture = new Models\furniture($product['sku'], $product['name'], $product['price'], $product['height'],
         $product['width'],$product['length']);
-        $forniture->save();
+        $furniture->save();
       }    
     }
   }

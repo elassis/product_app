@@ -2,7 +2,7 @@
   namespace Libs\Products;
   use Libs\Products\Product;
 
-  class Forniture extends Product {
+  class furniture extends Product {
     public $height;
     public $width;
     public $length;

@@ -15,11 +15,11 @@
       return $newBook;
     }
     
-    if($product['forniture_id'] !== null) { 
-      $newForniture = new Products\Forniture($product['sku'], $product['name'], $product['price'], $product['height'],
+    if($product['furniture_id'] !== null) { 
+      $newfurniture = new Products\furniture($product['sku'], $product['name'], $product['price'], $product['height'],
       $product['width'],$product['length']); 
-      $newForniture->setId($product['id']);
-      return $newForniture;
+      $newfurniture->setId($product['id']);
+      return $newfurniture;
 
     }
   }
