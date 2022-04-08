@@ -16,7 +16,7 @@
       $db = new Database();
       $conn = $db->connect();
       try {
-        $stmt = $conn->prepare("INSERT INTO products (id, sku, name, price) VALUES ('', :sku, :name, :price)");
+        $stmt = $conn->prepare("INSERT INTO products (id, sku, name, price) VALUES (null, :sku, :name, :price)");
         $stmt->execute(array(':sku'=>$this->getSku(),':name'=>$this->getName(),':price'=>$this->getPrice()));
         
         $lastId = $db->getLastId();

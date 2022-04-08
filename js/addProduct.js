@@ -119,7 +119,7 @@ class addProductFunctions {
 
   sendToApi(obj){
     $.ajax({
-      url:'http://localhost/products_app/api/create.php',
+      url:'https://enmanuellassisproductapp.000webhostapp.com/api/create.php',
       method:'post',
       data:{product: obj},
       success:(resp)=>{

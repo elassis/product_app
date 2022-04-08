@@ -16,7 +16,7 @@
     }
     
     if($product['furniture_id'] !== null) { 
-      $newfurniture = new Products\furniture($product['sku'], $product['name'], $product['price'], $product['height'],
+      $newfurniture = new Products\Furniture($product['sku'], $product['name'], $product['price'], $product['height'],
       $product['width'],$product['length']); 
       $newfurniture->setId($product['id']);
       return $newfurniture;

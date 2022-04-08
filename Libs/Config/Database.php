@@ -3,9 +3,9 @@
 
   class Database {
     private $server = 'localhost';
-    private $database = 'products';
-    private $user = 'root';
-    private $pass = '';
+    private $database = 'id18749011_products';
+    private $user = 'id18749011_root';
+    private $pass = 'd_/8Q[U9Y!}x\DRK';
 
     public function connect(){
       try {

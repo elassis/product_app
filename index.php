@@ -1,7 +1,7 @@
 <?php  
   include_once 'helper_functions.php';
   
-  $url = 'http://localhost/products_app/api/index.php';
+  $url = 'https://enmanuellassisproductapp.000webhostapp.com/api/index.php';
   $response = file_get_contents($url);
   $json_response = json_decode($response, true);
   $length = count($json_response['products']);

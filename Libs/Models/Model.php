@@ -33,7 +33,7 @@
         $book->save();
       } 
       if($product['type'] == 'furniture'){
-        $furniture = new Models\furniture($product['sku'], $product['name'], $product['price'], $product['height'],
+        $furniture = new Models\Furniture($product['sku'], $product['name'], $product['price'], $product['height'],
         $product['width'],$product['length']);
         $furniture->save();
       }    

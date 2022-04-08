@@ -4,7 +4,7 @@
   use Libs\Products;
   use Libs\Config\Database;
 
-  class furniture extends Products\furniture {
+  class Furniture extends Products\Furniture {
     public function __construct($sku, $name, $price, $height, $width, $length){
       $this->sku = $sku;
       $this->name = $name;
@@ -18,7 +18,7 @@
       $db = new Database();
       $conn = $db->connect();
       try {
-        $stmt = $conn->prepare("INSERT INTO products (id, sku, name, price) VALUES ('', :sku, :name, :price)");
+        $stmt = $conn->prepare("INSERT INTO products (id, sku, name, price) VALUES (null, :sku, :name, :price)");
         $stmt->execute(array(':sku'=>$this->getSku(),':name'=>$this->getName(),':price'=>$this->getPrice()));
         
         $lastId = $db->getLastId();
@@ -27,11 +27,11 @@
 
         $stmt2->execute(array(':id'=>$lastId[0],':height'=>$this->getHeight(),':width'=>$this->getWidth(),
         ':length'=>$this->getLength()));
-        echo 'OK';
-        exit;
       } catch (PDOException $e) {
-        throw $e;
+        echo $e->getMessage();
       }
+      echo 'OK';
+      exit;
 
     }
   }

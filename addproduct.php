@@ -40,7 +40,7 @@
         <option value="ts" selected>Type Switcher</option>
         <option value="book">Book</option>
         <option value="dvd">DVD</option>
-        <option value="furniture">furniture</option>
+        <option value="furniture">Furniture</option>
       </select>
       <div id="template-container"></div>  
     </form>
